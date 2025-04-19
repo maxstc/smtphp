@@ -12,6 +12,7 @@ let options = {
     hidePIPELINING: true,
     hide8BITMIME: true,
     hideSMTPUTF8: true,
+    authOptional: true,
     onConnect: (session, callback) => {
         db.insertOne({
             address: session.remoteAddress,
