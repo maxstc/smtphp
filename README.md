@@ -6,7 +6,8 @@ If you would like to remove your IP from the wall of shame, you should have not 
 
 Enjoy
 
-todo: check that sender failed SPF/DKIM (or is trying to spoof as US!!!)
-sort results by timestamp & only send a couple at a time
-rate limiter
-web scraping checker o_O
+#todo: 
+- check that sender failed SPF/DKIM (or is trying to spoof as US!!!)
+- sort results by timestamp & only send a couple at a time
+- rate limiter
+- web scraping checker o_O
