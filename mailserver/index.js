@@ -18,4 +18,4 @@ let options = {
         return callback();
     }
 }
-const server = new SMTPServer(options);
+const server = new SMTPServer(options).listen(25);

@@ -11,5 +11,6 @@
   "dependencies": {
     "mongodb": "^6.15.0",
     "smtp-server": "^3.13.6"
-  }
+  },
+  "type": "module"
 }

@@ -1,24 +1,27 @@
 import { MongoClient } from "mongodb";
+import * as fs from "fs";
 const client = new MongoClient("mongodb://127.0.0.1:27017");
 client.connect();
 let db = client.db("smtphp").collection("addresses");
 
-import * as https from "https";
-const options = {
-    key: fs.readFileSync("../crypt/key.pem"),
-    cert: fs.readFileSync("../crypt/cert.pem"),
-}
+import * as http from "http";
+// const options = {
+//     key: fs.readFileSync("../crypt/key.pem"),
+//     cert: fs.readFileSync("../crypt/cert.pem"),
+// }
 
 let clientHtml = fs.readFileSync("../webclient/index.html");
 
 let addresses = "";
 
 function refreshAddresses() {
-    addresses = JSON.stringify(db.find().toArray());
+    db.find().toArray().then((arr) => {
+        addresses = JSON.stringify(arr);
+    });
 }
 
-https.createServer(options, (req, res) => {
-    if (req.url === "addresses") {
+http.createServer((req, res) => {
+    if (req.url === "/addresses") {
         res.writeHead(200);
         res.end(addresses);
     }
@@ -28,4 +31,5 @@ https.createServer(options, (req, res) => {
     }
 }).listen(443);
 
+refreshAddresses();
 setInterval(() => {refreshAddresses();}, 10000);

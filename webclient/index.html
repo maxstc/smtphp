@@ -13,22 +13,25 @@
             display: flex;
             justify-content: center;
         }
+        p {
+            font-family: 'Courier New', Courier, monospace;
+        }
         span {
             color: red;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to the SMTP Wall of&nbsp;<span>Shame</span></h1>
-    <h3>Every IP address here is certified to be&nbsp;<span>very naughty</span>.</h3>
-    <h4>Made in ~3 hours by&nbsp;<a href="https://www.github.com/maxstc">"Dr." Waxy</a>&nbsp;and&nbsp;<a href="https://www.github.com/ebooth03">The Evanator</a>.</h4>
+    <h1><a>Welcome to the SMTP Wall of</a>&nbsp;<span>Shame</span></h1>
+    <h3><a>Every IP address here is certified to be</a>&nbsp;<span>very naughty</span><a>.</a></h3>
+    <h4><a>Made in ~3 hours by</a>&nbsp;<a href="https://www.github.com/maxstc">"Dr." Waxy</a>&nbsp;<a>and</a>&nbsp;<a href="https://www.github.com/ebooth03">The Evanator</a><a>.</a></h4>
 </body>
 <script>
     function populateList(json) {
         for (let i = 0; i < json.length; i++) {
-            document.getElementsByTagName("body")[0].innerHTML += `<p>${json[i]}</p>`;
+            document.getElementsByTagName("body")[0].innerHTML += `<p>${json[i].address}</p>`;
         }
     }
-    fetch("addresses").then((res) => { res.json(); }).then((json) => { populateList(json) });
+    fetch("addresses").then(res => { res.json().then(json => { populateList(json) }) });
 </script>
 </html>
