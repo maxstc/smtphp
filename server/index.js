@@ -19,6 +19,9 @@ let options = {
             timestamp: Date.now(),
         });
         return callback();
+    },
+    onError: (error) => {
+        console.log(error);
     }
 }
 const server = new SMTPServer(options).listen(25);
