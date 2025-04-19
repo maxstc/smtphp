@@ -1,8 +1,8 @@
-This our SMTP honeypot.
+This my SMTP honeypot.
 
-If you would like to add your IP the wall of shame, send us some SMTP traffic.
+If you would like to add your IP the wall of shame, send me some SMTP traffic.
 
-If you would like to remove your IP from the wall of shame, you should have not sent us SMTP traffic. (haha)
+If you would like to remove your IP from the wall of shame, you should have not sent me SMTP traffic. (haha)
 
 Enjoy
 
